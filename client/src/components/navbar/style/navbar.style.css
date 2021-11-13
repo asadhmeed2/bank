@@ -1,0 +1,9 @@
+.navbar{
+    width:100%;
+    height: 20px;
+}
+.navbar ul{
+    display: flex;
+    list-style: none;
+    gap: 2vw;
+}
