@@ -1,5 +1,6 @@
 .user{
     display: flex;
+    flex-direction: column;
     gap: 2vw;
     justify-content: center;
     
@@ -11,5 +12,6 @@
     padding: 1.5vmax;
     gap: 2vw;
     background:rgba(11, 11, 14, 0.3);
-    height: 20vh;
+    height: 50vh;
+    width: 30vw;
 }
