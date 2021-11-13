@@ -31,13 +31,16 @@ app.post("/users", (req, res) => {
       ) {
         return res.status(200).send("user exist");
       }
-
+      if(!(req.body.passportId&&req.body.cash&&req.body.credit)){
+        return res.status(403).send("all inputs are required");
+      }
       const user = {
         id: uniqid(),
         passportId: parseInt(req.body.passportId),
         cash: parseInt(req.body.cash),
         credit: parseInt(req.body.credit),
       };
+      console.log(user);
       let temp = [...data, user];
       new Promise((resolve, reject) => {
         fs.writeFileSync(
