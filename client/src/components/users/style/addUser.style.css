@@ -1,0 +1,23 @@
+.addUser {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  padding: 20px;
+}
+.addUserWarpper {
+  display: flex;
+  justify-content: center;
+  gap: 2vh;
+}
+
+.addUserLogo {
+  font-size: 50px;
+}
+.Add-h1 {
+  background: black;
+  color: white;
+  border-radius: 15px;
+}
+.New-h1 {
+    color: red;
+}

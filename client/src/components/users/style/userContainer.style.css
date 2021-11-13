@@ -1,0 +1,6 @@
+.UserContainer{
+    display: flex;
+    gap: 2vw;
+    flex-wrap: wrap;
+    padding:3vmax;
+}

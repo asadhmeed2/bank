@@ -9,7 +9,7 @@ function User({ id, passportId, cash, credit }) {
     cash,
     credit,
   });
- 
+
   const messageRef = React.useRef();
   const UserTransferHandler = (amount, toAccountPassportID) => {
     const requestData = {
@@ -26,8 +26,7 @@ function User({ id, passportId, cash, credit }) {
       })
       .catch((error) => {
         console.log(error.message);
-        messageRef.current.textContent =
-          "Error transfer failed: ";
+        messageRef.current.textContent = "Error transfer failed: ";
       });
   };
   const userUpdateHandler = (amount, transactionType) => {
@@ -36,7 +35,7 @@ function User({ id, passportId, cash, credit }) {
      * withdrow
      * changeCredit
      */
-     const requestData = {
+    const requestData = {
       amount: amount,
       id: user.id,
     };
@@ -46,21 +45,18 @@ function User({ id, passportId, cash, credit }) {
       .put(`http://localhost:5000/${transactionType}`, requestData)
       .then((response) => {
         const tempUser = { ...user };
-        if(transactionType==='deposit'){
+        if (transactionType === "deposit") {
           tempUser.cash += amount;
-        }else if(transactionType==='withdrow'){
+        } else if (transactionType === "withdrow") {
           tempUser.cash -= amount;
-        }else if(transactionType=== 'changeCredit'){
-          tempUser.credit=amount;
+        } else if (transactionType === "changeCredit") {
+          tempUser.credit = amount;
         }
-
       })
       .catch((error) => {
         console.log(error.message);
-        messageRef.current.textContent =
-          `Error ${transactionType} failed:`;
+        messageRef.current.textContent = `Error ${transactionType} failed:`;
       });
-
   };
   const hideMessage = () => {
     messageRef.current.textContent = "";
@@ -68,16 +64,18 @@ function User({ id, passportId, cash, credit }) {
   return (
     <div className="userWarpper">
       <div className="user">
-        <div className="id">{id}</div>
-        <div className="passportId">{passportId}</div>
-        <div className="cash">{cash}</div>
-        <div className="credit">{credit}</div>
+        <div className="id">Id : {id}</div>
+        <div className="passportId"> PassportId : {passportId}</div>
+        <div className="cash">Cash : {cash}</div>
+        <div className="credit">Credit : {credit}</div>
       </div>
-      <TransactionContainer
-        hideMessage={hideMessage}
-        UserTransferHandler={UserTransferHandler}
-        userUpdateHandler={userUpdateHandler}
-      />
+    
+        <TransactionContainer
+          hideMessage={hideMessage}
+          UserTransferHandler={UserTransferHandler}
+          userUpdateHandler={userUpdateHandler}
+        />
+   
       <div ref={messageRef} className="message"></div>
     </div>
   );

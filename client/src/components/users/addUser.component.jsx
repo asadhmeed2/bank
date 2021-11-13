@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import './style/addUser.style.css'
 function AddUser() {
     const [user,setUser]=React.useState({passportId:"",cash:"",credit:""});
     const messageRef =React.useRef();
@@ -18,12 +19,17 @@ function AddUser() {
     });
   }
   return (
-    <div className="user">
+    <div className="addUser">
+      <div className="addUserWarpper">
       <input type="text" name="passportId" className="passportId" placeholder="Passport ID" onChange={inputHandler}/>
       <input type="text" name="cash" className="cash" placeholder="Cash"onChange={inputHandler}/>
       <input type="text" name="credit" className="credit" placeholder="Credit"onChange={inputHandler}/>
       <input type="button" value="Add User" onClick={onFormSubmit}/>
+      </div>
       <div className="message" ref={messageRef}></div>
+      <div className="addUserLogo">
+        <h1><span className="Add-h1">Add</span> <span className="New-h1">New</span> <span className='user-h1'>User</span> </h1>
+      </div>
     </div>
   );
 }

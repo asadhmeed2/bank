@@ -5,9 +5,9 @@ function Navbar() {
     return (
         <div className="navbar">
             <ul>
-              <Link to={'/'}><li>Home</li></Link>
-              <Link to={'/users'} ><li>Users</li></Link>
-              <Link to={'/addUser'}><li>Add User</li></Link>
+              <Link className='link' to={'/'}><li>Home</li></Link>
+              <Link className='link' to={'/users'} ><li>Users</li></Link>
+              <Link className='link' to={'/addUser'}><li>Add User</li></Link>
             </ul>  
         </div>
     )
