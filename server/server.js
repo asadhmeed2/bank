@@ -19,7 +19,6 @@ app.post("/users", (req, res) => {
       if (err) {
         reject(err);
       }
-      console.log(data.toString());
       resolve(JSON.parse(data.toString()));
     });
   });
@@ -32,7 +31,7 @@ app.post("/users", (req, res) => {
       ) {
         return res.status(200).send("user exist");
       }
-      console.log(req.body);
+
       const user = {
         id: uniqid(),
         passportId: parseInt(req.body.passportId),
@@ -40,9 +39,7 @@ app.post("/users", (req, res) => {
         credit: parseInt(req.body.credit),
       };
       let temp = [...data, user];
-      console.log(temp);
       new Promise((resolve, reject) => {
-        console.log(__dirname);
         fs.writeFileSync(
           path.resolve(__dirname, "./user.json"),
           JSON.stringify(temp)

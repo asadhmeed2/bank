@@ -1,0 +1,5 @@
+the project is a simulator of bank transactions of users (deposit withdrow credit update and transactions between users) 
+the hardest thing in the project is the client side 
+
+i faced bugs of all kinds but the trickier ones are the misspelled words in the code
+it will take a long time to find the misspelled words
